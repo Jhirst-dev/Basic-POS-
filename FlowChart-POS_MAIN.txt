@@ -1,0 +1,146 @@
+┌─────────────┐
+│ Start POS   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Create JFrame       │
+│ Load Components     │
+│ Start Time Timer    │
+│ Start Uptime Timer  │
+│ Generate Ref Number │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Waiting for User    │
+└──────┬──────────────┘
+       │
+       ├──────────────► Meal Button Clicked
+       │                     │
+       │                     ▼
+       │             addItem()
+       │                     │
+       │                     ▼
+       │             updateScreen()
+       │
+       ├──────────────► Drink Button Clicked
+       │                     │
+       │                     ▼
+       │             addItem()
+       │                     │
+       │                     ▼
+       │             updateScreen()
+       │
+       ├──────────────► Delete Button Clicked
+       │                     │
+       │                     ▼
+       │              removeLast()
+       │                     │
+       │                     ▼
+       │              updateScreen()
+       │
+       ▼
+┌─────────────────────┐
+│ User Presses Order  │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────────┐
+│ Is Order Empty?         │
+└──────┬───────────┬──────┘
+       │Yes        │No
+       ▼           ▼
+ Show Error   Check Reference
+                    │
+                    ▼
+         ┌─────────────────────┐
+         │ Already Processed?  │
+         └──────┬───────┬──────┘
+                │Yes    │No
+                ▼       ▼
+         Show Error   Save Order
+                           │
+                           ▼
+                  LocalServer.orders
+                           │
+                           ▼
+                  Generate New Ref
+                           │
+                           ▼
+                  Waiting Payment
+┌─────────────────────┐
+│ Exchange Button     │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Read Cash Amount    │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Get Order Total     │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Calculate Change    │
+│ Cash - Total        │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Update Exchange UI  │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ Send Data to        │
+│ ReceiptPanel        │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ displayOrder()      │
+│ showReceipt()       │
+└──────┬──────────────┘
+       │
+       ▼
+┌─────────────────────┐
+│ saveReceiptToFile() │
+└──────┬──────────────┘
+       │
+       ▼
+      End
+
+
+
+Customer Phone
+       │
+       ▼
+HTML Kiosk
+       │
+       ▼
+Submit Order
+       │
+       ▼
+LocalServer
+       │
+       ▼
+Generate Reference
+       │
+       ▼
+Store Order
+       │
+       ▼
+Customer Receives Ref
+       │
+       ▼
+Cashier Enters Ref
+       │
+       ▼
+getOrder(ref)
+       │
+       ▼
+Display on POS
